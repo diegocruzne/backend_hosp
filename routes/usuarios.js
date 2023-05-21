@@ -14,6 +14,7 @@ const { validarJWT } = require("../middlewares/validar-jwt");
 const router = Router();
 
 router.get("/", validarJWT, getUsuarios);
+
 router.post(
   "/",
   [
@@ -24,6 +25,7 @@ router.post(
   ],
   crearUsuario
 );
+
 router.put(
   "/:id",
   [
@@ -35,6 +37,7 @@ router.put(
   ],
   actualizarUsuario
 );
+
 router.delete("/:id", validarJWT, borrarUsuario);
 
 module.exports = router;

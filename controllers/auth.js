@@ -13,7 +13,7 @@ const login = async (req, res = response) => {
 
     // Verificar emanil
     if (!usuarioDB)
-      res.status(404).json({ ok: false, msg: "Email no encontrado" });
+      return res.status(404).json({ ok: false, msg: "Email no encontrado" });
 
     // Verificar contraseña
     const validPassword = bcrypt.compareSync(password, usuarioDB.password);
@@ -88,9 +88,13 @@ const renewToken = async (req, res = response) => {
   // Generar el token - jwt
   const token = await generarJWT(uid);
 
+  // Obtener usuario por UID
+  const usuario = await Usuario.findById(uid);
+
   res.json({
     ok: true,
     token,
+    usuario,
   });
 };
 
