@@ -6,6 +6,7 @@ const Hospital = require("../models/hospital");
 const borrarImagen = (path) => {
   if (fs.existsSync(path)) {
     // Borrar la imagen anterior
+    // ejemplos de algo aquinlansda
     fs.unlinkSync(path);
   }
 };
