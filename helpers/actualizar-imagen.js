@@ -7,6 +7,7 @@ const borrarImagen = (path) => {
   if (fs.existsSync(path)) {
     // Borrar la imagen anterior
     // ejemplos de algo aquinlansda
+    //  nakjsds
     fs.unlinkSync(path);
   }
 };
